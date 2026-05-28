@@ -27,10 +27,7 @@ app.get("/api/pcs", async (request, reply) =>{
   return pcs;
 })
 
-app.listen({
-  port: 8000,
-  host: "127.0.0.1",
-});
+
 
 app.get("/bye",async(request, reply) => {
     return {
@@ -46,4 +43,43 @@ app.post("/api/pcs", async(request, reply) => {
   reply.code(201);
 
   return newPc;
+});
+
+app.get("/api/pcs/:id", async(request, reply) => {
+  const id = Number(request.params.id);
+
+  const pc = await prisma.gamingPc.findUnique({
+    where: {
+      id: id
+    }
+  });
+
+  if(pc === null){
+    reply.code(404);
+
+    return {
+      message: `Gaming PC with ID ${id} was not found`
+    };
+  }
+
+  return pc;
+});
+
+
+app.patch("/api/pcs/:id", async (request, reply) => {
+  const id = Number(request.params.id);
+
+  const updatedPc = await prisma.gamingPc.update({
+    where: {
+      id: id,
+    },
+    data: request.body,
+  });
+
+  return updatedPc;
+});
+
+app.listen({
+  port: 8000,
+  host: "127.0.0.1",
 });
