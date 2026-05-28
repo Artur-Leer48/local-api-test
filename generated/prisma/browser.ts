@@ -22,3 +22,8 @@ export * from './enums.ts';
  * 
  */
 export type GamingPc = Prisma.GamingPcModel
+/**
+ * Model Gpu
+ * 
+ */
+export type Gpu = Prisma.GpuModel

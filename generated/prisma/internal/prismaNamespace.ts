@@ -384,7 +384,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  GamingPc: 'GamingPc'
+  GamingPc: 'GamingPc',
+  Gpu: 'Gpu'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -400,7 +401,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "gamingPc"
+    modelProps: "gamingPc" | "gpu"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -478,6 +479,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Gpu: {
+      payload: Prisma.$GpuPayload<ExtArgs>
+      fields: Prisma.GpuFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GpuFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GpuFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload>
+        }
+        findFirst: {
+          args: Prisma.GpuFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GpuFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload>
+        }
+        findMany: {
+          args: Prisma.GpuFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload>[]
+        }
+        create: {
+          args: Prisma.GpuCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload>
+        }
+        createMany: {
+          args: Prisma.GpuCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GpuCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload>[]
+        }
+        delete: {
+          args: Prisma.GpuDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload>
+        }
+        update: {
+          args: Prisma.GpuUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload>
+        }
+        deleteMany: {
+          args: Prisma.GpuDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GpuUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GpuUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload>[]
+        }
+        upsert: {
+          args: Prisma.GpuUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GpuPayload>
+        }
+        aggregate: {
+          args: Prisma.GpuAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGpu>
+        }
+        groupBy: {
+          args: Prisma.GpuGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GpuGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GpuCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GpuCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -533,6 +608,17 @@ export const GamingPcScalarFieldEnum = {
 } as const
 
 export type GamingPcScalarFieldEnum = (typeof GamingPcScalarFieldEnum)[keyof typeof GamingPcScalarFieldEnum]
+
+
+export const GpuScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  memoryGb: 'memoryGb',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GpuScalarFieldEnum = (typeof GpuScalarFieldEnum)[keyof typeof GpuScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -738,6 +824,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   gamingPc?: Prisma.GamingPcOmit
+  gpu?: Prisma.GpuOmit
 }
 
 /* Types for Logging */

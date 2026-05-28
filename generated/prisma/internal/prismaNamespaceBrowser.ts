@@ -51,7 +51,8 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  GamingPc: 'GamingPc'
+  GamingPc: 'GamingPc',
+  Gpu: 'Gpu'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -86,6 +87,17 @@ export const GamingPcScalarFieldEnum = {
 } as const
 
 export type GamingPcScalarFieldEnum = (typeof GamingPcScalarFieldEnum)[keyof typeof GamingPcScalarFieldEnum]
+
+
+export const GpuScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  memoryGb: 'memoryGb',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GpuScalarFieldEnum = (typeof GpuScalarFieldEnum)[keyof typeof GpuScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -46,3 +46,8 @@ export { Prisma }
  * 
  */
 export type GamingPc = Prisma.GamingPcModel
+/**
+ * Model Gpu
+ * 
+ */
+export type Gpu = Prisma.GpuModel

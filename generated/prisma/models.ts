@@ -9,4 +9,5 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/GamingPc.ts'
+export type * from './models/Gpu.ts'
 export type * from './commonInputTypes.ts'
